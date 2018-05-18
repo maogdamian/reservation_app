@@ -5,7 +5,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 3007;
+var PORT = 3003;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -36,6 +36,29 @@ app.get("/", function(req, res){
 	res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.get("/tables", function(req,res){
+	res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+app.get("/reservations", function(req,res){
+	res.sendFile(path.join(__dirname, "reservations.html"))
+})
+
 app.get("/api/tables", function(req, res){
 	return res.json(reservations)
+});
+
+app.post("/api/tables", function(req,res){
+	var newTable = req.body
+
+	console.log(newTable)
+	if(reservations.length < 5){
+		reservations.push(newTable)
+		console.log(reservations)
+	}else{
+		waitlist.push(newTable)
+		console.log(waitlist)
+	}
+
+	res.json(newTable)
 })
