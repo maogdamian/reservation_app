@@ -5,7 +5,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 3003;
+var PORT = var PORT = process.env.PORT || 3003;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,6 +46,10 @@ app.get("/reserve", function(req,res){
 
 app.get("/api/tables", function(req, res){
 	return res.json(reservations)
+});
+
+app.get("/api/waitlist", function(req, res){
+	return res.json(waitlist)
 });
 
 app.post("/api/tables", function(req,res){
