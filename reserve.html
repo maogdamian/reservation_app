@@ -21,8 +21,8 @@
 			<br>
 
 			<div class="text-center">
-				<a href="/reservation_app/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-				<a href="/reservation_app/index"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+				<a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
+				<a href="/index"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
 			</div>
 		</div>
 
@@ -70,7 +70,7 @@
 
 	    <footer class="footer">
 	      <div class="container">
-	        <p><a href="/reservation_app/api/tables">API Table Link</a> | <a href="/reservation_app/api/waitlist">API Wait List</a> </p>
+	        <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> </p>
 	      </div>
 	    </footer>
 
@@ -98,7 +98,7 @@
 
 		var currentURL = window.location.origin;
 
-	    $.post(currentURL + "/reservation_app/api/tables", newReservation,
+	    $.post(currentURL + "/api/tables", newReservation,
 	    function(data){
 
 	    	// Table available.
